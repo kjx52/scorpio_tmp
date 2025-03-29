@@ -211,10 +211,7 @@ pub fn change(
 ///
 /// This function should not make any changes to the existing Tree structure,
 /// and should only make changes during the Commit operation.
-use std::{thread, time};
-
 pub fn add_and_del(real_path: PathBuf, tree_path: PathBuf, db: &sled::Db) -> Result<(), Box<dyn std::error::Error>>{
-    thread::sleep(time::Duration::from_millis(80));
     println!("Start");
     let root_tree = db.get_bypath(tree_path.clone());
     let tree = match root_tree {
